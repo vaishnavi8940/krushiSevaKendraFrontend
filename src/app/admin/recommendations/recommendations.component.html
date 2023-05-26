@@ -1,0 +1,56 @@
+<main id="main" class="main">
+  <div class="row">
+  <div class="col-lg-8">
+    <div class="pagetitle">
+      <h1 *ngIf="farmer">Recommendations  :  {{farmer.name}}</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a>Home</a></li>
+          <li class="breadcrumb-item active" >Recommendations</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  </div>
+  <div class="col-lg-4">
+         <button class="btn btn-secondary" style="margin-left: 160px;" (click)="OpenPop()" mat-raised-button color="primary">Add Recommendation</button>
+        </div>
+</div>
+<section class="section dashboard">
+<div class="row">
+      <!-- Left side columns -->
+ <div class="col-lg-12">
+    <div class="card-body">
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Actions</th>
+            <th scope="col" >No</th>
+            <th scope="col">Date</th>
+            <th scope="col">Message</th>
+            <th scope="col">Farmerid</th>
+            <th scope="col">Crop</th>
+            <th scope="col">Admin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let recommendation of recommendations; let i = index;">
+            <td><button class="btn btn-danger" (click)="Delete(recommendation.id)">Delete</button></td>
+            <td>{{i + 1}}</td>
+            <td>{{recommendation.rdate | date :"dd/MM/yyyy"}}</td>
+            <td>{{recommendation.message}}</td>
+            <td>{{recommendation.farmer.name}}</td>
+            <td>{{recommendation.crop.name}}</td>
+            <td>{{recommendation.admin.name}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>

@@ -1,0 +1,57 @@
+<main id="main" class="main">
+  <div class="row">
+  <div class="col-lg-8">
+    <div class="pagetitle">
+      <h1>Farmers</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a>Home</a></li>
+          <li class="breadcrumb-item active">Farmers</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="col-lg-4">
+         <button class="btn btn-secondary" style="margin-left: 220px;" routerLink="/admin/farmer">Add Farmer</button>
+  </div>
+</div>
+<section class="section dashboard">
+<div class="row">
+ <div class="col-lg-12">
+    <div class="card-body">
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" >Action</th>
+            <th scope="col" >No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Mobile no</th>
+            <th scope="col">Town</th>
+            <th></th>
+            <th scope="col">Recommendations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let farmer of farmers; let i = index;">
+            <td> <button class="btn btn-danger btn-sm" (click)="Delete(farmer.id)">Delete</button>&nbsp;&nbsp;
+                 <button class="btn btn-primary btn-sm" routerLink="/admin/farmer/{{farmer.id}}">Edit</button>
+            </td>
+            <td>{{i + 1}}</td>
+            <td>{{farmer.name}}</td>
+            <td>{{farmer.mobileno}}</td>
+            <td class="ps-4">{{farmer.town.name}}</td>
+            <td></td>
+            <td><button class="btn btn-primary" routerLink="/admin/recommendations/{{farmer.id}}">Recommendations</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</section>

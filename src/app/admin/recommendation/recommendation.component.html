@@ -1,0 +1,45 @@
+  <h2 mat-dialog-title>Recommendation</h2>
+  <div mat-dialog-content class="mat-typography">
+      <div style="height:330px; width:600px;">
+     <form [formGroup]="formdata" (ngSubmit)="Save(formdata.value)">
+            <div class="row">
+              <div class="col-lg-6">
+                <h3 style="font-weight: bold;">Crop</h3>
+                <mat-form-field>
+                  <mat-label>Select Crop</mat-label>
+                  <select matNativeControl formControlName="cropid" name="car">
+                    <option value="0">--SELECT--</option>
+                    <option *ngFor="let crop of crops" value="{{ crop.id }}">{{ crop.name }}
+                    </option>
+                  </select>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <h3 style="font-weight: bold;">Date</h3>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" formControlName="rdate" placeholder="Choose a date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <br><br>
+                <h3 style="font-weight: bold;">Message </h3>
+                <mat-form-field >
+                  <mat-label>Enter message</mat-label>
+                  <textarea formControlName="message" matInput
+                            cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize"
+                            cdkAutosizeMinRows="1"
+                            cdkAutosizeMaxRows="5"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+                <mat-dialog-actions align="center">
+                  <button mat-raised-button color="primary" type="submit" class="btn btn-success">save</button> &nbsp;&nbsp;
+                  <button mat-raised-button color="warn" mat-dialog-close class="btn btn-dark">Cancel</button>
+                </mat-dialog-actions>
+       </form>
+
+
+  </div>
